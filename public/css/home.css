@@ -1,0 +1,274 @@
+/* Define Color Variables */
+:root {
+    --primary-color: white;   /* Yellow */
+    --secondary-color: #d3d3d3; /* Light Gray */
+    --background-color: #1c1c28; /* Dark Background */
+    --header-color: #252533;    /* Darker Background for header/footer */
+    --highlight-color: #ead699; /* For text highlight */
+}
+
+/* Enable smooth scrolling across the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Caudex', serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+}
+
+h1, h2, h3 {
+    color: black;
+    font-family: 'Caudex', serif;
+    font-weight: 700; /* Bold weight */
+}
+
+p, li, span {
+    color: var(--highlight-color);
+    font-family: 'Caudex', serif;
+    font-weight: 400; /* Regular weight */
+}
+a:hover{
+    color: var(--highlight-color);
+}
+header {
+    background-color: var(--header-color);
+    padding: 1em 0;
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Align at the top of the viewport */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make sure it spans the full width */
+    z-index: 1000; /* Keep it above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for better visibility */
+    scroll-snap-align: start; /* Snap the header to the top */
+}
+
+.navigation {
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.btn-login {
+    padding: 0.5em 1em;
+    color: var(--header-color);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.container {
+    height: 100vh; 
+    scroll-snap-align: start; 
+    padding-top: 80px; 
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+}
+.hero span{
+    color: rebeccapurple;
+    font-weight: 800;
+}
+.hero h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.hero p {
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+/* About Me Page Styling */
+.about, .skills {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    padding: 50px 0;
+    scroll-snap-align: start; /* Snaps each section to the top of the viewport */
+}
+
+.about h2, .skills h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-content {
+    display: flex;
+    gap: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+    padding: 20px;
+    text-align: justify;
+}
+
+.about-text h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill {
+    background-color: var(--header-color);
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+}
+
+.skill h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: var(--header-color);
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 50px;
+    scroll-snap-align: start; /* Snaps the footer to the top when scrolling */
+}
+
+footer p {
+    color: var(--secondary-color);
+}
+
+/* Contact Page Styling */
+.contact {
+    background-color: #1c1c28;
+    color: #d3d3d3;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    color: #ffd966;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    color: #d3d3d3;
+    margin-bottom: 40px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #252533;
+    border-radius: 8px;
+}
+
+.contact-info h3 {
+    color: #ffd966;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: #d3d3d3;
+}
+
+.contact-form {
+    flex: 1;
+    padding: 40px;
+    background-color: #252533;
+    border-radius: 8px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #d3d3d3;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #1c1c28;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    color: #d3d3d3;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #ffd966;
+}
+
+.contact-form .btn-submit {
+    display: inline-block;
+    background-color: #ffd966;
+    color: #252533;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.contact-form .btn-submit:hover {
+    background-color: #ffca4d;
+}

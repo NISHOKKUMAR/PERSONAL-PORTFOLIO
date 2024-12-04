@@ -1,0 +1,74 @@
+:root {
+    --primary-color: #b86767; /* A vibrant blue for primary buttons or accents */
+    --background-color: #1e1e1e; /* A dark gray for the header background */
+    --highlight-color: #e59d59; /* A warm yellow for hover highlights */
+    --secondary-color: #b0bec5; /* A soft light gray for secondary text or links */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+a:hover{
+    color: var(--highlight-color);
+}
+header {
+    background-color: var(--background-color);
+    padding: 1em 0;
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Align at the top of the viewport */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make sure it spans the full width */
+    z-index: 1000; /* Keep it above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for better visibility */
+    scroll-snap-align: start; /* Snap the header to the top */
+}
+
+.navigation {
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.btn-login {
+    padding: 0.5em 1em;
+    color: var(--header-color);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
