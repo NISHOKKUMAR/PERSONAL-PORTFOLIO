@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\BlogSeeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,10 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(5)->withPosts(3)->create();
 
-        $this->call([
-            BlogSeeder::class,  // This will seed the 'blogs' table
-        ]);
     }
 }

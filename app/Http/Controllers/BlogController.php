@@ -12,7 +12,7 @@ class BlogController
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::paginate(9);
         return view('blog.index',compact('blogs'));
     }
 
@@ -29,29 +29,33 @@ class BlogController
      */
     public function store(Request $request)
     {
-        // Validate the form input
-        $request->validate([
+        // Validate the incoming request
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'tags' => 'nullable|string|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:9048', // Validation for image
         ]);
 
-        // Handle image upload if present
+        // Handle the image upload
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('images', 'public');
+            // Store the image and get the file path
+            $imagePath = $request->file('image')->store('images', 'public');
         }
 
-        // Store the blog post in the database
-        Blog::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'image' => $imagePath,
-        ]);
+        // Create the blog post and save it to the database
+        $blog = new Blog();
+        $blog->title = $validated['title'];
+        $blog->author = $validated['author'];
+        $blog->tags = $validated['tags'];
+        $blog->content = $validated['content'];
+        $blog->image = $imagePath; // Store the image path in the database
+        $blog->save();
 
-        // Redirect or show a success message
-        return redirect()->route('blog.create')->with('success', 'Blog post created successfully!');
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Blog post created successfully!');
     }
 
     /**
