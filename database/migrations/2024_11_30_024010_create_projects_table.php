@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->project_id()->primary();
+            $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string("title");
             $table->string("description");
             $table->string("tags");

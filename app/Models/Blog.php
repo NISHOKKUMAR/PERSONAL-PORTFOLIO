@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
-    protected $table = 'blogposts';
+    use HasFactory;
+    protected $table = 'blogs';
     
     public function user()
     {

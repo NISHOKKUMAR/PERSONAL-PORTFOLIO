@@ -30,7 +30,7 @@
 }
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     gap: 10px;
     margin-top: 40px;
     padding: 1rem;
@@ -38,31 +38,42 @@
     border: #ffffff 2px solid;
 }
 
-.blog-post {
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+
 
 .blog-post:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
+.blog-post {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column; /* Stack the image and content vertically */
+    height: 100%; /* Allow the container to grow with content */
+    max-height: 600px; /* Optional: Set a max height for the entire blog post */
+}
 
 .blog-post img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 200px; /* Adjusted height to ensure the image is visible */
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    object-position: center; /* Center the image in case it's cropped */
+    margin-bottom: 1rem; /* Add some space between the image and the content */
 }
 
 .blog-content {
     padding: 1rem;
-    margin-top: 85px;
     background-color: #000000;
+    flex-grow: 1; /* Allow the content to take the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 
 .content {
     padding: 1rem;

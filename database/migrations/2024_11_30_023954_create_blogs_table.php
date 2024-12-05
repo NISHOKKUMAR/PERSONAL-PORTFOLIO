@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("author");
 
             // Define the user_id column as a foreign key
-            $table->unsignedBigInteger('user_id'); // unsigned integer column for user_id
+            $table->unsignedBigInteger('user_id')->nullable(); // unsigned integer column for user_id
             // Add the foreign key constraint
             $table->foreign('user_id') // reference the user_id column
                 ->references('id')    // reference the 'id' column in the users table
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("tags");
             $table->string("content");
             $table->string("image");
+            $table->string('slug')->unique(); 
             $table->timestamps();
         });
     }

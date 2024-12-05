@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController
 {
@@ -38,6 +39,16 @@ class BlogController
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:9048', // Validation for image
         ]);
 
+        $slug = Str::slug($validated['title']);
+
+        // Check for duplicates and append a counter if necessary
+        $originalSlug = $slug;
+        $count = 1;
+        while (Blog::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
         // Handle the image upload
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -51,7 +62,9 @@ class BlogController
         $blog->author = $validated['author'];
         $blog->tags = $validated['tags'];
         $blog->content = $validated['content'];
-        $blog->image = $imagePath; // Store the image path in the database
+        $blog->image = $imagePath; 
+        $blog->slug = $slug;
+        $blog->user_id = auth()->id ?? null;
         $blog->save();
 
         // Redirect back with success message

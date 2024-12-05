@@ -11,6 +11,8 @@
             @foreach ($blogs as $blog)
                 <article class="blog-post">
                     <img src="{{ asset('storage/' . $blog->image) }}" alt="Post Image">
+
+
                     <div class="blog-content">
                         <h3>{{ $blog->title }}</h3>
                         <p class="author-date">{{ $blog->author }}</p>

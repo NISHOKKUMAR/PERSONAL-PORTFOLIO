@@ -46,6 +46,6 @@ class UserFactory extends Factory
 
     public function withBlogs($count = 3)
     {
-        return $this->has(Blog::Factory()->count($count),'posts');
+        return $this->has(Blog::factory()->count($count),'blog');
     }
 }
