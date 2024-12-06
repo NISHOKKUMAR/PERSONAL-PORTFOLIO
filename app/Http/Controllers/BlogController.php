@@ -74,9 +74,10 @@ class BlogController
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        return view('blog.show', compact('blog'));
     }
 
     /**

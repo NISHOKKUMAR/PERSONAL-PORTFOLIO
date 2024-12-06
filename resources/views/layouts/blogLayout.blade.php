@@ -12,7 +12,7 @@
         <link href="{{ asset('css/blog-index.css') }}" rel="stylesheet">
     @elseif(request()->is('blogs/create'))
         <link href="{{ asset('css/blog-create.css') }}" rel="stylesheet">
-    @elseif(request()->is('blogs/show'))
+    @elseif(request()->is('blogs/*'))
         <link href="{{ asset('css/blog-show.css') }}" rel="stylesheet">
     @endif
     <style>

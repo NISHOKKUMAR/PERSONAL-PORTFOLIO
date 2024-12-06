@@ -9,26 +9,30 @@
     <div class="grid-centre">
         <section class="blog-grid">
             @foreach ($blogs as $blog)
-                <article class="blog-post">
-                    <img src="{{ asset('storage/' . $blog->image) }}" alt="Post Image">
+                <a href="{{ url('/blogs/'.$blog->slug) }}">
+                    <article class="blog-post">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="Post Image">
 
 
-                    <div class="blog-content">
-                        <h3>{{ $blog->title }}</h3>
-                        <p class="author-date">{{ $blog->author }}</p>
-                        <p class="description">{{ $blog->description }}</p>
-                        <div class="tags">
-                            @foreach (explode(',', $blog->tags) as $tag)
-                                <span>{{ trim($tag) }}</span>
-                            @endforeach
+                        <div class="blog-content">
+                            <h3>{{ $blog->title }}</h3>
+                            <p class="author-date">{{ $blog->author }}</p>
+                            <p class="description">{{ $blog->description }}</p>
+                            <div class="tags">
+                                @foreach (explode(',', $blog->tags) as $tag)
+                                    <span>{{ trim($tag) }}</span>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </a>
             @endforeach
         </section>
     </div>
 
     <div class="pagination">
-        {{ $blogs->links() }}
+        {{ $blogs->links('vendor.pagination.custom') }}
     </div>
+
+
 @endsection

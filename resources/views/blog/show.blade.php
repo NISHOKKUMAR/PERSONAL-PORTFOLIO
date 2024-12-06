@@ -1,19 +1,27 @@
-<!-- resources/views/blogs/show.blade.php -->
-
-@extends('layouts.homeLayout')
+@extends('layouts.blogLayout')
 
 @section('content')
-    <h1>{{ $blog->title }}</h1>
-    <p><strong>Author:</strong> {{ $blog->author ?? 'Unknown' }}</p>
-    <p>{{ $blog->content }}</p>
+    <div class="blog-detail-container">
+        <article class="blog-detail">
+            <h1 class="blog-title">{{ $blog->title }}</h1>
+            <p class="blog-author">By {{ $blog->author }}</p>
+            <p class="blog-date">Published on {{ $blog->created_at->format('F d, Y') }}</p>
 
-    <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Back to Blog List</a>
-    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning">Edit Post</a>
+            <div class="blog-image">
+                <img src="{{ asset('storage/' . $blog->image) }}" alt="Post Image">
+            </div>
 
-    <!-- Delete button (optional) -->
-    <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete Post</button>
-    </form>
+            <div class="blog-content">
+                {!! nl2br(e($blog->content)) !!}
+            </div>
+
+            <div class="blog-tags">
+                @foreach (explode(',', $blog->tags) as $tag)
+                    <span class="tag">{{ trim($tag) }}</span>
+                @endforeach
+            </div>
+        </article>
+        <br>
+        <a href="{{ route('blogs.index') }}" class="back-btn">Back to All Blogs</a>
+    </div>
 @endsection
