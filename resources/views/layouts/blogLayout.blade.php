@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +13,10 @@
         <link href="{{ asset('css/blog-create.css') }}" rel="stylesheet">
     @elseif(request()->is('blogs/*'))
         <link href="{{ asset('css/blog-show.css') }}" rel="stylesheet">
+    
+    @elseif(request()->is('projects'))
+        <link href="{{ asset('css/project-index.css') }}" rel="stylesheet">
+    
     @endif
     <style>
         .content{
