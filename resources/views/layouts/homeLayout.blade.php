@@ -23,7 +23,9 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="" class="btn-login">Login</a>
+            @guest
+                <a href="" class="btn-login">Login</a>
+            @endguest
         </div>
     </header>
 

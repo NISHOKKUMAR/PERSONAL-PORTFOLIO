@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 
-class BlogController
+class BlogController extends Controller
 {
+    public function __construct()
+    {
+        // Apply 'auth' middleware to all methods except 'index' and 'show'
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -64,7 +70,7 @@ class BlogController
         $blog->content = $validated['content'];
         $blog->image = $imagePath; 
         $blog->slug = $slug;
-        $blog->user_id = auth()->id ?? null;
+        $blog->user_id = auth()->id;
         $blog->save();
 
         // Redirect back with success message

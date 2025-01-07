@@ -3,7 +3,9 @@
 @section('content')
     <div class="blog-head">
         <h1>All Blog Posts</h1>
-        <a href="{{ route('blogs.create') }}" class="blog-create-btn">Create New Blog Post</a>
+        @auth
+            <a href="{{ route('blogs.create') }}" class="blog-create-btn">Create New Blog Post</a>
+        @endauth
     </div>
     
     <div class="grid-centre">
