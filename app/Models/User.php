@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use App\Models\Blog;
+use App\Models\Project;
 
 class User extends Authenticatable
 {
@@ -51,6 +52,11 @@ class User extends Authenticatable
     public function blog()
     {
         return $this->hasMany(Blog::class);
+    }
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
     }
 
 }

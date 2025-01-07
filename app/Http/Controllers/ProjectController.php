@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
-class ProjectController
+class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        // Apply 'auth' middleware to all methods except 'index' and 'show'
+        $this->middleware('auth')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+        return view('project.index',compact('projects'));
     }
 
     /**
