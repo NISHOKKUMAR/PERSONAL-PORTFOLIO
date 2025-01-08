@@ -24,7 +24,7 @@ class BlogFactory extends Factory
             'content' => $this->faker->paragraph,
             'author' => $this->faker->name,
             'tags' => implode(',', $this->faker->words(3)), 
-            'content' => $this->faker->paragraph,  
+            'content' => implode("\n\n", $this->faker->paragraphs(rand(2, 6))),  
             'image' => $this->faker->imageUrl(),   
             'slug' => $this->faker->slug,          
             'created_at' => now(),

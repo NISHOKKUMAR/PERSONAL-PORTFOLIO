@@ -17,7 +17,7 @@
                 <p class="project-description">{{ $project->description }}</p>
             </div>
             <div class="project-image">
-                <img src="{{ asset('storage/' . 'images/2GPkYclHd1qNp2Dz6JFnzvtJbF3CIdNPabBcxSJb.jpg') }}" alt="{{ $project->title }}">
+                <img src="{{ asset('storage/images' . '/2GPkYclHd1qNp2Dz6JFnzvtJbF3CIdNPabBcxSJb.jpg') }}" alt="{{ $project->title }}">
             </div>
         </div>
     @endforeach

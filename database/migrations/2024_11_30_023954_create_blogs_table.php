@@ -25,7 +25,7 @@ return new class extends Migration
                 ->onDelete('cascade'); // if a user is deleted, delete the associated blog posts
 
             $table->string("tags");
-            $table->string("content");
+            $table->text('content');
             $table->string("image");
             $table->string('slug')->unique(); 
             $table->timestamps();
