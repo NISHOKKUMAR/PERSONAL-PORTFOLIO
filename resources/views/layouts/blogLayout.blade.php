@@ -39,7 +39,15 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="" class="btn-login">Login</a>
+            @guest
+                <a href="{{ route('login') }}" class="btn-login">Login</a>
+            @endguest
+            @auth
+                <form action="{{ route('logout') }}" method="POST" style="display: inline; cursor: pointer;">
+                    @csrf
+                    <button type="submit" class="btn-login">Logout</button>
+                </form>            
+            @endauth
         </div>
     </header>
 

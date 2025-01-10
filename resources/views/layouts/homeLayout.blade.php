@@ -24,8 +24,14 @@
                 </ul>
             </nav>
             @guest
-                <a href="" class="btn-login">Login</a>
+                <a href="{{ route('login') }}" class="btn-login">Login</a>
             @endguest
+            @auth
+                <form action="{{ route('logout') }}" method="POST" style="display: inline; padding: 10px 20px; font-size: 16px; cursor: pointer;">
+                    @csrf
+                    <button type="submit" class="btn-login">Logout</button>
+                </form>            
+            @endauth
         </div>
     </header>
 
