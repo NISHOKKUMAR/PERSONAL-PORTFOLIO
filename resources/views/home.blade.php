@@ -60,8 +60,8 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
+        <section class="contact">
+            <div id="contact" class="container">
                 <h2>Contact Me</h2>
                 <p>If you have any questions or just want to say hello, feel free to reach out!</p>
                 

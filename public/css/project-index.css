@@ -1,3 +1,33 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.project-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #121212;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-create-btn {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.project-create-btn:hover {
+    background-color: #ffffff;
+    color: #121212;
+    transform: translateY(-3px);
+}
 .projects {
     display: flex;
     flex-direction: column;

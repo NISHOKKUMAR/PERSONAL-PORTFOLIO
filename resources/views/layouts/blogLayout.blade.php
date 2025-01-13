@@ -36,11 +36,11 @@
             <nav>
                 <ul>
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="{{ route('home').'#about' }}">About</a></li>
+                    <li><a href="{{ route('home').'#skills' }}">Skills</a></li>
                     <li><a href="{{ route('projects.index') }}">Projects</a></li>
                     <li><a href="{{ route('blogs.index') }}">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ route('home').'#contact' }}">Contact</a></li>
                 </ul>
             </nav>
             @guest

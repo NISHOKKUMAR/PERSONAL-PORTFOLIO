@@ -15,7 +15,7 @@
                 @foreach ($blogs as $blog)
                     <a href="{{ url('/blogs/'.$blog->slug) }}">
                         <article class="blog-post">
-                            <img src="{{'storage/'.$blog->image}}" alt="{{ asset($blog->image) }}">
+                            <img src="{{'storage/'.$blog->image}}" alt="{{ asset($blog->title) }}">
                             <div class="blog-content">
                                 <h3>{{ $blog->title }}</h3>
                                 <p class="author-date">{{ $blog->author }}</p>
