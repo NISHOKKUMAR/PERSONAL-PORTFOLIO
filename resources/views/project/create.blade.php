@@ -1,25 +1,75 @@
-<!-- resources/views/blogs/create.blade.php -->
-
-@extends('layouts.homeLayout')
+@extends('layouts.blogLayout')
 
 @section('content')
-    <h1>Create New Blog Post</h1>
+    <div class="container">
+        <h1>Create New Project</h1>
 
-    <form action="{{ route('blogs.store') }}" method="POST">
-        @csrf
-        <div>
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
-        </div>
-        <div>
-            <label for="content">Content</label>
-            <textarea id="content" name="content" rows="5" required></textarea>
-        </div>
-        <div>
-            <label for="author">Author</label>
-            <input type="text" id="author" name="author">
-        </div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
-        <button type="submit">Create Post</button>
-    </form>
+        <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="form-group">
+                <label for="title">Project Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" required>
+                @error('title')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="description">Project Description</label>
+                <input type="text" name="description" id="description" class="form-control" value="{{ old('description') }}" required>
+                @error('description')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated)</label>
+                <input type="text" name="tags" id="tags" class="form-control" value="{{ old('tags') }}">
+                @error('tags')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="live_url">Live URL (optional)</label>
+                <input type="url" name="live_url" id="live_url" class="form-control" value="{{ old('live_url') }}">
+                @error('live_url')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="github_url">GitHub URL (optional)</label>
+                <input type="url" name="github_url" id="github_url" class="form-control" value="{{ old('github_url') }}">
+                @error('github_url')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="content">Project Content</label>
+                <textarea name="content" id="content" class="form-control" rows="5" required>{{ old('content') }}</textarea>
+                @error('content')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Image (optional)</label>
+                <input type="file" name="image" id="image" class="form-control-file">
+                @error('image')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Project</button>
+        </form>
+    </div>
 @endsection

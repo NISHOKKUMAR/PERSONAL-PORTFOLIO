@@ -1,19 +1,39 @@
-<!-- resources/views/blogs/show.blade.php -->
+@extends('layouts.blogLayout')
 
-@extends('layouts.homeLayout')
-
+@section('title',$project->title)
 @section('content')
-    <h1>{{ $blog->title }}</h1>
-    <p><strong>Author:</strong> {{ $blog->author ?? 'Unknown' }}</p>
-    <p>{{ $blog->content }}</p>
+    <div class="project-show-container">
+        <div class="project-header">
+            <h1>{{ $project->title }}</h1>
+            <p class="author">By {{ $project->author }}</p>
+        </div>
+        <div class="project-image">
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }} image">
+        </div>
+        <div class="project-details">
+            <div class="project-description">
+                <h3>Description</h3>
+                <p>{{ $project->description }}</p>
+            </div>
 
-    <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Back to Blog List</a>
-    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning">Edit Post</a>
+            <div class="project-tags">
+                <h3>Tags</h3>
+                <p>{{ $project->tags }}</p>
+            </div>
 
-    <!-- Delete button (optional) -->
-    <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete Post</button>
-    </form>
+            <div class="project-content">
+                <h3>Content</h3>
+                <p>{{ $project->content }}</p>
+            </div>
+
+            <div class="project-links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="{{ $project->live_url }}" target="_blank">Live URL</a></li>
+                    <li><a href="{{ $project->github_url }}" target="_blank">GitHub Repository</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
 @endsection

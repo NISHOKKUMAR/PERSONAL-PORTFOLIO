@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -47,19 +47,13 @@ class BlogController extends Controller
 
         $slug = Str::slug($validated['title']);
 
-        // Check for duplicates and append a counter if necessary
-        $originalSlug = $slug;
-        $count = 1;
-        while (Blog::where('slug', $slug)->exists()) {
-            $slug = $originalSlug . '-' . $count;
-            $count++;
-        }
+        
 
         // Handle the image upload
         $imagePath = null;
         if ($request->hasFile('image')) {
             // Store the image and get the file path
-            $imagePath = $request->file('image')->store('images', 'public');
+            $imagePath = $request->file('image')->store('blog_images', 'public');
         }
 
         // Create the blog post and save it to the database
@@ -70,7 +64,7 @@ class BlogController extends Controller
         $blog->content = $validated['content'];
         $blog->image = $imagePath; 
         $blog->slug = $slug;
-        $blog->user_id = auth()->id;
+        $blog->user_id = auth()->id();
         $blog->save();
 
         // Redirect back with success message

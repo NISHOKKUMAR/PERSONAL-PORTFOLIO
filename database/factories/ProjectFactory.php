@@ -23,6 +23,7 @@ class ProjectFactory extends Factory
         return [
             'user_id' => User::factory(), // Automatically creates a related user
             'title' => $this->faker->sentence(3), // Generates a short title
+            'slug' => $this->faker->slug, 
             'description' => $this->faker->paragraph(2), // Generates a short description
             'tags' => implode(',', $this->faker->words(3)), // Generates comma-separated tags
             'live_url' => $this->faker->url(), // Generates a random URL

@@ -11,15 +11,17 @@
 </div>
 <div class="projects">
     @foreach ($projects as $project)
-        <div class="project-card">
-            <div class="project-info">
-                <h2 class="project-title">{{ $project->title }}</h2>
-                <p class="project-description">{{ $project->description }}</p>
+        <a href="{{ route('projects.show', $project->slug) }}">
+            <div class="project-card">
+                <div class="project-info">
+                    <h2 class="project-title">{{ $project->title }}</h2>
+                    <p class="project-description">{{ $project->description }}</p>
+                </div>
+                <div class="project-image">
+                    <img src="{{ asset('storage/' .$project->image) }}" alt="{{ $project->title }}">
+                </div>
             </div>
-            <div class="project-image">
-                <img src="{{ asset('storage/images' . '/2GPkYclHd1qNp2Dz6JFnzvtJbF3CIdNPabBcxSJb.jpg') }}" alt="{{ $project->title }}">
-            </div>
-        </div>
+        </a>
     @endforeach
 </div>
 @endsection

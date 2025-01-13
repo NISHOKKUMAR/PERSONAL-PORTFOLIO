@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string("title");
-            $table->string("description");
-            $table->string("tags");
-            $table->string("live_url");
-            $table->string("github_url");
-            $table->text("content"); // Changed to 'text'
-            $table->string("image");
+            $table->foreignId('user_id')->constrained();  // Assuming user relation
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description');
+            $table->string('tags');
+            $table->string('live_url')->nullable();
+            $table->string('github_url')->nullable(); 
+            $table->text('content');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
         

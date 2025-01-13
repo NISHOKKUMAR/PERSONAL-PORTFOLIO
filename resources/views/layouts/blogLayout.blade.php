@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - @yield('title')</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 
     @if(request()->is('blogs'))
@@ -13,9 +13,13 @@
         <link href="{{ asset('css/blog-create.css') }}" rel="stylesheet">
     @elseif(request()->is('blogs/*'))
         <link href="{{ asset('css/blog-show.css') }}" rel="stylesheet">
-    
-    @elseif(request()->is('projects'))
+    @endif
+    @if(request()->is('projects'))
         <link href="{{ asset('css/project-index.css') }}" rel="stylesheet">
+    @elseif(request()->is('projects/create'))
+        <link href="{{ asset('css/project-create.css') }}" rel="stylesheet">
+    @elseif(request()->is('projects/*'))
+        <link href="{{ asset('css/project-show.css') }}" rel="stylesheet">
     
     @endif
     <style>

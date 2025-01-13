@@ -1,0 +1,108 @@
+/* General styles for the page */
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the project show page */
+.project-show-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark background for content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+/* Header Styles */
+.project-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.project-header h1 {
+    color: #ff5722; /* Accent color */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.project-header .author {
+    color: #aaa; /* Lighter gray for author text */
+    font-size: 1.1em;
+}
+
+/* Section Title Styling */
+h3 {
+    color: #ff5722; /* Accent color */
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* Project Details */
+.project-details {
+    padding: 20px;
+}
+
+/* Project Description, Tags, Content, and Links */
+.project-description,
+.project-tags,
+.project-content,
+.project-links {
+    margin-bottom: 25px;
+}
+
+/* Project Image */
+.project-image {
+    text-align: center;
+}
+
+.project-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for image */
+}
+
+/* Links */
+.project-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-links ul li {
+    margin-bottom: 10px;
+}
+
+.project-links a {
+    color: #ff5722; /* Accent color */
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .project-show-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .project-header h1 {
+        font-size: 2em;
+    }
+
+    .project-header .author {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+}
